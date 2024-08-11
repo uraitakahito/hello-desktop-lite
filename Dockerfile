@@ -63,6 +63,12 @@ RUN cd /usr/src && \
   CONFIGUREZSHASDEFAULTSHELL=true \
   UPGRADEPACKAGES=false \
     /usr/src/features/src/common-utils/install.sh
+
+#
+# desktop-lite
+#
+RUN /usr/src/features/src/desktop-lite/install.sh
+
 USER ${user_name}
 
 #
@@ -72,5 +78,10 @@ RUN cd /home/${user_name} && \
   git clone --depth 1 ${dotfiles_repository} && \
   dotfiles/install.sh
 
-ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["tail", "-F", "/dev/null"]
+#
+# desktop-lite
+#
+ENV USERNAME ${user_name}
+ENV VNC_PORT 5901
+ENV NOVNC_PORT 6080
+ENTRYPOINT ["/usr/local/share/desktop-init.sh"]

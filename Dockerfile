@@ -66,6 +66,8 @@ RUN cd /usr/src && \
 
 #
 # desktop-lite
+# installsAfter: common-utils
+# https://github.com/uraitakahito/features/blob/0e14fce20c1008c837ac6b31b04297bd35108f9e/src/desktop-lite/devcontainer-feature.json#L58
 #
 RUN /usr/src/features/src/desktop-lite/install.sh
 
@@ -80,6 +82,7 @@ RUN cd /home/${user_name} && \
 
 #
 # desktop-lite
+# https://github.com/uraitakahito/features/blob/0e14fce20c1008c837ac6b31b04297bd35108f9e/src/desktop-lite/install.sh#L296-L417
 #
 ENV USERNAME ${user_name}
 ENV VNC_PORT 5901

@@ -80,6 +80,7 @@ RUN cd /home/${user_name} && \
 
 #
 # desktop-lite
+# https://github.com/uraitakahito/features/blob/0e14fce20c1008c837ac6b31b04297bd35108f9e/src/desktop-lite/install.sh#L296-L417
 #
 ENV USERNAME ${user_name}
 ENV VNC_PORT 5901
